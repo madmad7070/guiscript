@@ -38,6 +38,14 @@ local Tab = Window:CreateTab("메인😊", nil) -- Title, Image
 local Section = Tab:CreateSection("메인")
 
 local Button = Tab:CreateButton({
+   Name = "무적(E홀드)",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/madmad7070/mujck/refs/heads/main/da"))()
+
+end,
+})
+
+local Button = Tab:CreateButton({
    Name = "노무허브 콜라보(베스트)",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RuMinGay/nomu-hub523/refs/heads/main/nomu%20hub523"))()
@@ -116,6 +124,83 @@ local Tab = Window:CreateTab("타워🏢", nil) -- Title, Image
 local Section = Tab:CreateSection("메인")
 
 local Button = Tab:CreateButton({
+   Name = "칼타워 전용 올킬",
+   Callback = function()
+-- .gg/localx
+-- 백팩에 칼 있는 상태에서 K 눌러야 작동합니다
+local sword = "ClassicSword"
+-- "" <- 여기 안에 칼 이름 쓰시면 됩니다.
+local Players = game:GetService('Players')
+local UserInputService = game:GetService('UserInputService')
+local client = Players.LocalPlayer
+
+local function dbug(txt)
+print(`[LocalX]: {txt}`)
+end
+
+-- 칼 있는지 확인
+_G.have_sword = false
+if client.Character:FindFirstChild(sword) then
+    dbug('칼이 존재합니다!')
+    client.Character:FindFirstChild(sword).Parent = client.Backpack
+elseif client.Backpack:FindFirstChild(sword) then
+    dbug('칼이 존재합니다!')
+else
+
+    dbug('칼을 구하는 중입니다...')
+    local search_sword = workspace.ChildAdded:Connect(function(obj)
+    
+    if obj:IsA('Tool') and obj.Name == sword and obj:FindFirstChild('Handle') then
+    client.Character.Humanoid:EquipTool(obj)
+    task.wait(.2)
+    obj.Parent = client.Backpack
+    dbug('칼을 성공적으로 얻었습니다!')
+    _G.have_sword = true
+    end
+    end)
+
+    repeat wait(.1) until _G.have_sword
+    print('aaa')
+    search_sword:Disconnect()
+end
+
+if not _G.Sword_Exploit_Executed then
+    _G.Sword_Exploit_Executed = true
+    _G.Sword_Exploit = false
+
+    UserInputService.InputBegan:Connect(function(input, ...)
+        if input.KeyCode == Enum.KeyCode.K then
+            assert(client.Character:FindFirstChild(sword), '칼을 착용 후 다시 시도하세요.')
+            _G.Sword_Exploit = not _G.Sword_Exploit
+            print(_G.Sword_Exploit)
+            if _G.Sword_Exploit then
+
+                repeat
+                    task.wait()
+
+                    for _, plr in pairs(Players:GetPlayers()) do
+                        if plr ~= client then
+                            pcall(function()
+                                firetouchinterest(client.Character:FindFirstChild(sword).Handle, plr.Character:FindFirstChild('HumanoidRootPart'), 0)
+                                task.wait()
+                                firetouchinterest(client.Character:FindFirstChild(sword).Handle, plr.Character:FindFirstChild('HumanoidRootPart'), 1)
+                            end)
+                        end
+                    end
+                until not _G.Sword_Exploit or not client.Character:FindFirstChild(sword)
+                dbug('end')
+                _G.Sword_Exploit = false
+            end
+
+        end
+    end)
+end
+
+print(_G.Sword_Exploit_Executed)
+   end,
+})
+
+local Button = Tab:CreateButton({
    Name = "월홉🏢(Q)",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/madmad7070/wallhop/refs/heads/main/wallhop"))()
@@ -163,6 +248,14 @@ end
 
 local Tab = Window:CreateTab("가강전✊", nil) -- Title, Image
 local Section = Tab:CreateSection("메인")
+
+local Button = Tab:CreateButton({
+   Name = "무적(E홀드)",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/madmad7070/mujck/refs/heads/main/da"))()
+
+end,
+})
 
 local Button = Tab:CreateButton({
    Name = "올 폴링",
@@ -224,6 +317,14 @@ local Tab = Window:CreateTab("라이벌🔫", nil) -- Title, Image
 local Section = Tab:CreateSection("메인")
 
 local Button = Tab:CreateButton({
+   Name = "무적(E홀드)",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/madmad7070/mujck/refs/heads/main/da"))()
+
+end,
+})
+
+local Button = Tab:CreateButton({
    Name = "너검마 스크",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRivals"))()
@@ -251,13 +352,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/madmad7070/4lf0rkz/re
    end,
 })
 
-local Button = Tab:CreateButton({
-   Name = "무적(E홀드)",
-   Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/madmad7070/mujck/refs/heads/main/da"))()
 
-end,
-})
 
 local Button = Tab:CreateButton({
    Name = "하앙 기무찌",
