@@ -37,6 +37,13 @@ local Window = Rayfield:CreateWindow({
 local Tab = Window:CreateTab("메인😊", nil) -- Title, Image
 local Section = Tab:CreateSection("메인")
 
+local Button = Tab:CreateButton({
+   Name = "노무허브 콜라보(베스트)",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RuMinGay/nomu-hub523/refs/heads/main/nomu%20hub523"))()
+   end,
+})
+
 local Toggle = Tab:CreateToggle({
     Name = "자동 채팅🗣️",
     CurrentValue = false,
