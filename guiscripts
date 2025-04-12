@@ -38,6 +38,13 @@ local Tab = Window:CreateTab("메인😊", nil) -- Title, Image
 local Section = Tab:CreateSection("메인")
 
 local Button = Tab:CreateButton({
+   Name = "칼로 다죽이기(칼 꺼내기 Z,X,C,V)",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/regentcon/kill/refs/heads/main/QAWD"))()
+end,
+})
+
+local Button = Tab:CreateButton({
    Name = "무적(E홀드)",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/madmad7070/mujck/refs/heads/main/da"))()
@@ -46,10 +53,64 @@ end,
 })
 
 local Button = Tab:CreateButton({
-   Name = "칼로 다죽이기(칼 꺼내기 Z,X,C,V)",
+   Name = "올 폴링",
    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/regentcon/kill/refs/heads/main/QAWD"))()
-end,
+loadstring(game:HttpGet("https://raw.githubusercontent.com/madmad7070/allfling/refs/heads/main/allfling"))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "터치? 플링",
+   Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+
+local hiddenfling = true
+
+-- 챗지피티 나이스!
+if not ReplicatedStorage:FindFirstChild("juisdfj0i32i0eidsuf0iok") then
+	local detection = Instance.new("Decal")
+	detection.Name = "juisdfj0i32i0eidsuf0iok"
+	detection.Parent = ReplicatedStorage
+end
+
+-- fling 함수 정의
+local function fling()
+	local hrp, c, vel, movel = nil, nil, nil, 0.1
+	local lp = Players.LocalPlayer
+
+	while true do
+		RunService.Heartbeat:Wait()
+
+		if hiddenfling then
+			while hiddenfling and not (c and c.Parent and hrp and hrp.Parent) do
+				RunService.Heartbeat:Wait()
+				c = lp.Character
+				hrp = c and c:FindFirstChild("HumanoidRootPart")
+			end
+
+			if hiddenfling then
+				vel = hrp.Velocity
+				hrp.Velocity = vel * 10000 + Vector3.new(0, 10000, 0)
+				RunService.RenderStepped:Wait()
+				if c and c.Parent and hrp and hrp.Parent then
+					hrp.Velocity = vel
+				end
+				RunService.Stepped:Wait()
+				if c and c.Parent and hrp and hrp.Parent then
+					hrp.Velocity = vel + Vector3.new(0, movel, 0)
+					movel = movel * -1
+				end
+			end
+		end
+	end
+end
+
+-- fling 코루틴 실행
+coroutine.wrap(fling)()
+
+   end,
 })
 
 local Button = Tab:CreateButton({
@@ -320,13 +381,6 @@ local Button = Tab:CreateButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DiosDi/VexonHub/refs/heads/main/VexonHub"))()   end,
 })
 
-local Button = Tab:CreateButton({
-   Name = "무적(E홀드)",
-   Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/madmad7070/mujck/refs/heads/main/da"))()
-
-end,
-})
 local Tab = Window:CreateTab("라이벌🔫", nil) -- Title, Image
 local Section = Tab:CreateSection("메인")
 
