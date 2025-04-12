@@ -49,7 +49,6 @@ local Button = Tab:CreateButton({
    Name = "칼로 다죽이기(칼 꺼내기 Z,X,C,V)",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/regentcon/kill/refs/heads/main/QAWD"))()
-
 end,
 })
 
