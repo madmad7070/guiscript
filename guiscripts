@@ -115,6 +115,13 @@ Rayfield:Notify({
 })
 
 local Button = Tab:CreateButton({
+   Name = "SituationAdmin👑",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Teemsploit/SituationAdmin.lua/main/admin.lua"))()
+   end,
+})
+
+local Button = Tab:CreateButton({
    Name = "백도어 어드민👑",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/madmad7070/admin/refs/heads/main/admin"))()
